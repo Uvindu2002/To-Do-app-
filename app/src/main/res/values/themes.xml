@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ToDoApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/mainBlack</item>
+         <item name="colorPrimaryVariant">@color/mainBlack</item>
+         <item name="android:statusBarColor">@color/mainBlack</item>
     </style>
 
     <style name="Theme.ToDoApp" parent="Base.Theme.ToDoApp" />
