@@ -16,20 +16,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="Add Note"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:text="Add Task"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="28dp" />
 
     <ImageView
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_done_24"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@id/addNoteHeading"
-        app:tint="@color/white"
-        android:layout_marginEnd="6dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/baseline_done_24"
+        app:tint="@color/white" />
 
     <EditText
         android:id="@+id/titleEditText"
@@ -45,22 +46,24 @@
         android:background="@drawable/taskbackgroung"
         android:layout_marginTop="16dp"
         android:maxLines="1"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
         android:id="@+id/contentEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/taskbackgroung"
-        android:padding="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="350dp"
         android:layout_below="@+id/titleEditText"
-        android:textSize="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/taskbackgroung"
+        android:gravity="top"
         android:hint="Enter the description"
+        android:padding="12dp"
         android:textColor="@color/white"
-        android:gravity="top" />
+        android:textSize="20dp"
+        android:textColorHint="@android:color/white"/>
 
 
 </RelativeLayout>
