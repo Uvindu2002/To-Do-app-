@@ -5,12 +5,12 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class NoteDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
+class TaskDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
     companion object{
-        private const val DATABASE_NAME = "notesapp.db"
+        private const val DATABASE_NAME = "taskapp.db"
         private const val DATABASE_VERSION = 1
-        private const val TABLE_NAME = "allnotes"
+        private const val TABLE_NAME = "alltasks"
         private const val COLUMN_ID = "id"
         private const val COLUMN_TITLE = "title"
         private const val COLUMN_CONTENT = "content"
@@ -27,11 +27,11 @@ class NoteDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         onCreate(db)
     }
 
-    fun insertNote(note: Note){
+    fun insertTask(task: Task){
         val db = writableDatabase
         val values = ContentValues().apply {
-            put(COLUMN_TITLE, note.title)
-            put(COLUMN_CONTENT, note.description)
+            put(COLUMN_TITLE, task.title)
+            put(COLUMN_CONTENT, task.description)
         }
         db.insert(TABLE_NAME, null, values)
         db.close()
