@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.ContactsContract.CommonDataKinds.Note
 
 class TaskDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
@@ -31,10 +32,29 @@ class TaskDataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_TITLE, task.title)
-            put(COLUMN_CONTENT, task.description)
+            put(COLUMN_CONTENT, task.content)
         }
         db.insert(TABLE_NAME, null, values)
         db.close()
+    }
+
+    fun getAllTasks(): List<Task> {
+        val tasksList = mutableListOf<Task>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME"
+        val  cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+            val task = Task(id, title, content)
+            tasksList.add(task)
+        }
+        cursor.close()
+        db.close()
+        return tasksList
     }
 
 }
