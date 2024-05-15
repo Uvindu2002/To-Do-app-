@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
-        android:text="Update Note"
+        android:text="Update Task"
         android:textColor="@color/white"
         android:textSize="24dp" />
 
@@ -50,7 +50,7 @@
     <EditText
         android:id="@+id/updateContentEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:background="@drawable/taskbackgroung"
         android:padding="12dp"
         android:layout_marginTop="16dp"
